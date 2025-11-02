@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div data-aos="fade-up">
+    <h2>Your Public Key</h2>
+    <p>Share this public key with others so they can send you encrypted messages. They do not need your private key.</p>
+    <div class="card border-info">
+        <div class="card-header">RSA Public Key</div>
+        <div class="card-body">
+            <pre class="text-light">{{ public_key }}</pre>
+        </div>
+    </div>
+</div>
+{% endblock %}

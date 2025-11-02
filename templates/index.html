@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center" data-aos="fade-in">
+    <h1 class="display-4">Welcome to Secure Mail</h1>
+    <p class="lead text-info">Your end-to-end encrypted email solution.</p>
+    <hr>
+    {% if current_user.is_authenticated %}
+        <div data-aos="fade-up" data-aos-delay="200">
+            <p>You are logged in as <strong class="text-success">{{ current_user.username }}</strong>.</p>
+            <a href="{{ url_for('compose') }}" class="btn btn-primary btn-lg">Compose a New Email</a>
+        </div>
+    {% else %}
+        <div data-aos="fade-up" data-aos-delay="200">
+            <p>Please log in or register to start sending secure messages.</p>
+            <a href="{{ url_for('login') }}" class="btn btn-success btn-lg">Login</a>
+            <a href="{{ url_for('register') }}" class="btn btn-secondary btn-lg">Register</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div data-aos="fade-up">
+    <h2>Compose Secure Email</h2>
+    <form id="compose-form">
+        <div class="mb-3" data-aos="fade-up" data-aos-delay="100">
+            <label for="recipient_email" class="form-label">Recipient Email</label>
+            <input type="email" class="form-control" id="recipient_email" name="recipient_email" placeholder="recipient@example.com" required>
+            <div class="form-text">The recipient must also be a registered user of this service.</div>
+        </div>
+        <div class="mb-3" data-aos="fade-up" data-aos-delay="200">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-control" id="subject" name="subject" required>
+        </div>
+        <div class="mb-3" data-aos="fade-up" data-aos-delay="300">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="10" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">Encrypt and Send</button>
+    </form>
+</div>
+{% endblock %}

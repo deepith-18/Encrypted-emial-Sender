@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div data-aos="fade-up">
+    <h2>Decrypt a Message</h2>
+    <p>Paste the full encrypted message content from your email into the box below.</p>
+    <form method="POST" action="{{ url_for('decrypt_page') }}">
+        <div class="mb-3" data-aos="fade-up" data-aos-delay="100">
+            <label for="sender_email" class="form-label">Sender's Email Address</label>
+            <input type="email" class="form-control" id="sender_email" name="sender_email" placeholder="sender@example.com" required>
+            <div class="form-text">Required to verify the sender's digital signature.</div>
+        </div>
+        <div class="mb-3" data-aos="fade-up" data-aos-delay="200">
+            <label for="encrypted_message" class="form-label">Encrypted Message</label>
+            <textarea class="form-control" id="encrypted_message" name="encrypted_message" rows="15" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success" data-aos="fade-up" data-aos-delay="300">Decrypt Message</button>
+    </form>
+</div>
+
+{% if decrypted_message %}
+<hr class="my-4">
+<div data-aos="fade-in">
+    <h3>Decrypted Content:</h3>
+    <div class="card border-success">
+        <div class="card-body">
+            <pre class="text-light">{{ decrypted_message }}</pre>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
